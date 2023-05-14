@@ -9,7 +9,7 @@ import { presetGrid } from 'unocss-preset-grid'
 
 export default defineConfig({
   presets: [
-    presetBootstrapGrid(),
+    presetGrid(),
     ...
   ]
 })
