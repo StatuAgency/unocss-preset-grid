@@ -1,0 +1,23 @@
+{
+  "name": "unocss-preset-grid",
+  "description": "Grid Preset for UnoCSS",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/StatuAgency/unocss-preset-grid.git",
+  "homepage": "https://github.com/StatuAgency/unocss-preset-grid",
+  "bugs": {
+    "url": "https://github.com/StatuAgency/unocss-preset-grid/issues"
+  },
+  "author": "StatuAgency",
+  "license": "MIT",
+  "keywords": [
+    "unocss",
+    "grid",
+    "column",
+    "tailwind",
+    "bootstrap"
+  ],
+  "devDependencies": {
+    "vite": "^4.3.5"
+  }
+}
