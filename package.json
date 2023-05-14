@@ -2,7 +2,20 @@
   "name": "unocss-preset-grid",
   "description": "Grid Preset for UnoCSS",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/index.ts",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
+
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+
   "repository": "https://github.com/StatuAgency/unocss-preset-grid.git",
   "homepage": "https://github.com/StatuAgency/unocss-preset-grid",
   "bugs": {
@@ -18,6 +31,8 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "vite": "^4.3.5"
+    "vite": "^4.3.5",
+    "typescript": "^5.0.4",
+    "unocss": "^0.51.12"
   }
 }
