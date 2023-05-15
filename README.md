@@ -17,23 +17,20 @@ export default defineConfig({
 
 ## Utilities
 
-* .[prefix-]container
-* .[prefix-]row
-* .[prefix-]col
-* .[prefix-]col-(1-12)
-* .[prefix-]col-auto
-* .[prefix-]col-fill
-* .[prefix-]offset-(1-12)
-* .[prefix-]g(x|y)-*
+* .container
+* .row
+* .col
+* .col-(1-12)
+* .col-auto
+* .col-fill
+* .offset-(1-12)
+* .g(x|y)-*
 
 ## Type of `GridOptions`
 
 ```ts
 export interface GridOptions {
-  prefix?: {
-    class?: string
-    variable?: string
-  }
+  prefix?: string
   piece?: string
   gutter?: string
   columns?: number
