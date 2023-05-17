@@ -1,7 +1,7 @@
 {
   "name": "unocss-preset-grid",
   "description": "Grid Preset for UnoCSS",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "main": "src/index.ts",
   "type": "module",
   "types": "./dist/index.d.ts",

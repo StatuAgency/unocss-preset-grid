@@ -9,11 +9,14 @@ import { presetGrid } from 'unocss-preset-grid'
 
 export default defineConfig({
   presets: [
-    presetGrid(),
     ...
+    presetGrid()
   ]
 })
 ```
+
+> **Note**
+> If used with UnoPreset or other similar preset, call `presetGrid()` at the bottom
 
 ## Utilities
 
