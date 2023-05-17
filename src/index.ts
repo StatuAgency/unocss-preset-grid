@@ -35,18 +35,19 @@ export function presetGrid(options: GridOptions = {}): Preset {
       [
         new RegExp(`^__container$`),
         ([], { rawSelector, theme }: any) => {
+          const _selector = escapeSelector(rawSelector)
           const _breakpoints = theme?.breakpoints ?? breakpoints
 
           const template = Object.keys(_breakpoints).map(
             (breakpoint: string) => `@media (min-width: ${_breakpoints[breakpoint]}) {
-              .${escapeSelector(rawSelector)} {
+              .${_selector} {
                 max-width: calc(${_breakpoints[breakpoint]} - ${piece});
               }
             }`
           )
 
           return `
-            .${escapeSelector(rawSelector)} {
+            .${_selector}, .${_selector}-fluid {
               --${prefix}gutter-x: ${gutter};
               --${prefix}gutter-y: 0;
               

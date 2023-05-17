@@ -18,6 +18,7 @@ export default defineConfig({
 ## Utilities
 
 * .container
+* .container-fluid
 * .row
 * .col
 * .col-(1-12)
