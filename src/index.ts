@@ -34,9 +34,9 @@ export function presetGrid(options: GridOptions = {}): Preset {
     rules: [
       [
         new RegExp(`^__container$`),
-        ([], { rawSelector, theme }: any) => {
+        ([], { rawSelector, generator }: any) => {
           const _selector = escapeSelector(rawSelector)
-          const _breakpoints = theme?.breakpoints ?? breakpoints
+          const _breakpoints = generator?.userConfig?.theme?.breakpoints ?? breakpoints
 
           const template = Object.keys(_breakpoints).map(
             (breakpoint: string) => `@media (min-width: ${_breakpoints[breakpoint]}) {
