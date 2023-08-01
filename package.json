@@ -31,7 +31,8 @@
   "devDependencies": {
     "typescript": "^5.1.6",
     "unocss": "^0.53.4",
-    "vite": "^4.4.2"
+    "vite": "^4.4.2",
+    "vite-plugin-dts": "^3.4.0"
   },
   "peerDependencies": {
     "unocss": "^0.53.4"
