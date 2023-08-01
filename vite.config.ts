@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import unocss from 'unocss/vite'
+import dts from 'vite-plugin-dts'
 
 import { presetGrid } from './src'
 
@@ -10,6 +11,7 @@ export default defineConfig({
         presetGrid(),
       ],
     }),
+    dts(),
   ],
   build: {
     lib: {
