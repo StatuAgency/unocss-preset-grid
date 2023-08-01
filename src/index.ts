@@ -1,12 +1,14 @@
 import type { Preset } from "unocss"
 import { escapeSelector } from "unocss"
+import { ensureSuffix } from "./utils"
 
+export type Brekpoints = Record<string, string | number>
 export interface GridOptions {
   prefix?: string
   piece?: string
   gutter?: string
   columns?: number
-  breakpoints?: Record<string, string>
+  breakpoints?: Brekpoints
 }
 
 export function presetGrid(options: GridOptions = {}): Preset {
@@ -36,12 +38,12 @@ export function presetGrid(options: GridOptions = {}): Preset {
         new RegExp(`^__container$`),
         ([], { rawSelector, generator }: any) => {
           const _selector = escapeSelector(rawSelector)
-          const _breakpoints = generator?.userConfig?.theme?.breakpoints ?? breakpoints
+          const _breakpoints: Brekpoints = generator?.userConfig?.theme?.breakpoints ?? breakpoints
 
           const template = Object.keys(_breakpoints).map(
-            (breakpoint: string) => `@media (min-width: ${_breakpoints[breakpoint]}) {
+            (breakpoint) => `@media (min-width: ${ensureSuffix('px', _breakpoints[breakpoint].toString())}) {
               .${_selector} {
-                max-width: calc(${_breakpoints[breakpoint]} - ${piece});
+                max-width: calc(${ensureSuffix('px', _breakpoints[breakpoint].toString())} - ${piece});
               }
             }`
           )
