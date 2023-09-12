@@ -62,6 +62,6 @@ export interface GridOptions {
   piece?: string
   gutter?: string
   columns?: number
-  breakpoints?: Record<string, string>
+  breakpoints?: Record<string, string | number>
 }
 ```
