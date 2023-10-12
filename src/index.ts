@@ -105,8 +105,7 @@ export function presetGrid(options: GridOptions = {}): Preset {
               flex: "1 0 0%"
             }
           }
-        },
-        { autocomplete: 'col-<num>' }
+        }
       ],
       [
         `col-auto`,
@@ -126,8 +125,7 @@ export function presetGrid(options: GridOptions = {}): Preset {
         new RegExp(`^offset-(\\d+)$`),
         ([, size]: any): any => ({
           "margin-left": size === "0" ? 0 : `${(size / columns) * 100}%`
-        }),
-        { autocomplete: 'offset-<num>' }
+        })
       ],
       [
         new RegExp(`^g([xy])?-(\\d+)$`),
@@ -136,8 +134,7 @@ export function presetGrid(options: GridOptions = {}): Preset {
           if (dim !== "y") gutterObject[`--${prefix}gutter-x`] = `${0.25 * size}rem`
           if (dim !== "x") gutterObject[`--${prefix}gutter-y`] = `${0.25 * size}rem`
           return gutterObject
-        },
-        { autocomplete: ['g-<num>', 'gx-<num>', 'gy-<num>'] }
+        }
       ]
     ]
   }
