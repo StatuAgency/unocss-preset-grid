@@ -6,7 +6,7 @@
   <a href="https://statu.co"><img src="https://img.shields.io/badge/Author-Statu-black?style=for-the-badge" alt="Author"></a>
   <a href="https://www.npmjs.com/package/unocss-preset-grid"><img src="https://img.shields.io/npm/v/unocss-preset-grid?style=for-the-badge" alt="Versio"></a>
   <a href="https://github.com/StatuAgency/unocss-preset-grid/blob/dev/LICENSE"><img src="https://img.shields.io/github/license/StatuAgency/unocss-preset-grid?sanitize=true&style=for-the-badge" alt="License"></a>
-  <a href="https://www.npmjs.com/package/unocss-preset-grid"><img src="https://img.shields.io/maintenance/yes/2023?style=for-the-badge" alt="Maintained"></a>
+  <a href="https://www.npmjs.com/package/unocss-preset-grid"><img src="https://img.shields.io/maintenance/yes/2024?style=for-the-badge" alt="Maintained"></a>
 </p>
 
 ---
