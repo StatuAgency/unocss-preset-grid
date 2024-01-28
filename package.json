@@ -1,7 +1,7 @@
 {
   "name": "unocss-preset-grid",
   "description": "Grid Preset for UnoCSS",
-  "version": "1.4.3-beta.0",
+  "version": "1.5.0",
   "main": "src/index.ts",
   "type": "module",
   "types": "./dist/index.d.ts",
@@ -29,12 +29,12 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "unocss": "^0.55.7",
-    "vite": "^4.4.9",
-    "vite-plugin-dts": "^3.5.3"
+    "typescript": "^5.3.3",
+    "unocss": "^0.58.4",
+    "vite": "^4.5.2",
+    "vite-plugin-dts": "^3.7.2"
   },
   "peerDependencies": {
-    "unocss": "^0.55.7"
+    "unocss": ">= 0.56.0 < 1"
   }
 }
