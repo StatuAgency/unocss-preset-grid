@@ -1,35 +1,35 @@
-import type { Preset } from "unocss"
-import { escapeSelector } from "unocss"
-import { ensureSuffix } from "./utils"
+import type { Preset } from "unocss";
+import { escapeSelector } from "unocss";
+import { ensureSuffix } from "./utils";
 
-export type Breakpoints = Record<string, string | number>
+export type Breakpoints = Record<string, string | number>;
 export interface GridOptions {
-  prefix?: string
-  piece?: string
-  gutter?: string
-  columns?: number
-  breakpoints?: Breakpoints
+  prefix?: string;
+  piece?: string;
+  gutter?: string;
+  columns?: number;
+  breakpoints?: Breakpoints;
 }
 
 export function presetGrid(options: GridOptions = {}): Preset {
   // Default Columns
-  const columns = options?.columns ?? 12
+  const columns = options?.columns ?? 12;
 
   // Default Prefix
-  const prefix = options?.prefix ?? "statu-"
+  const prefix = options?.prefix ?? "statu-";
 
   // Default Breakpoints
-  const piece = options?.piece ?? "60px"
+  const piece = options?.piece ?? "60px";
   const breakpoints = options?.breakpoints ?? {
     sm: "640px",
     md: "768px",
     lg: "1024px",
     xl: "1280px",
-    "2xl": "1536px"
-  }
+    "2xl": "1536px",
+  };
 
   // Default Gutter
-  const gutter = options?.gutter ?? "1.5rem"
+  const gutter = options?.gutter ?? "1.5rem";
 
   return {
     name: "unocss-preset-grid",
@@ -37,16 +37,23 @@ export function presetGrid(options: GridOptions = {}): Preset {
       [
         new RegExp(`^__container$`),
         ([], { rawSelector, generator }: any) => {
-          const _selector = escapeSelector(rawSelector)
-          const _breakpoints: Breakpoints = generator?.userConfig?.theme?.breakpoints ?? breakpoints
+          const _selector = escapeSelector(rawSelector);
+          const _breakpoints: Breakpoints =
+            generator?.userConfig?.theme?.breakpoints ?? breakpoints;
 
           const template = Object.keys(_breakpoints).map(
-            (breakpoint) => `@media (min-width: ${ensureSuffix('px', _breakpoints[breakpoint].toString())}) {
+            (breakpoint) => `@media (min-width: ${ensureSuffix(
+              "px",
+              _breakpoints[breakpoint].toString()
+            )}) {
               .${_selector} {
-                max-width: calc(${ensureSuffix('px', _breakpoints[breakpoint].toString())} - ${piece});
+                max-width: calc(${ensureSuffix(
+                  "px",
+                  _breakpoints[breakpoint].toString()
+                )} - ${piece});
               }
             }`
-          )
+          );
 
           return `
             .${_selector}, .${_selector}-fluid {
@@ -61,13 +68,14 @@ export function presetGrid(options: GridOptions = {}): Preset {
             }
             
             ${template.join("\n")}
-          `.replace(/^ {12}/gm, "")
-        }
+          `.replace(/^ {12}/gm, "");
+        },
+        { autocomplete: ["container", "container-fluid"] },
       ],
       [
         new RegExp(`^row$`),
         ([], { rawSelector }) => {
-          const selector = escapeSelector(rawSelector)
+          const selector = escapeSelector(rawSelector);
           const template = `
             .${selector} {
               --${prefix}gutter-x: ${gutter};
@@ -88,9 +96,9 @@ export function presetGrid(options: GridOptions = {}): Preset {
               padding-left: calc(var(--${prefix}gutter-x) * .5);
               margin-top: var(--${prefix}gutter-y);
             }
-          `
-          return template.replace(/^ {12}/gm, "")
-        }
+          `;
+          return template.replace(/^ {12}/gm, "");
+        },
       ],
       [
         new RegExp(`^col-?(\\d*)$`),
@@ -98,49 +106,51 @@ export function presetGrid(options: GridOptions = {}): Preset {
           if (size) {
             return {
               flex: "0 0 auto",
-              width: `${(size / columns) * 100}%`
-            }
+              width: `${(size / columns) * 100}%`,
+            };
           } else {
             return {
-              flex: "1 0 0%"
-            }
+              flex: "1 0 0%",
+            };
           }
         },
-        { autocomplete: 'col-<num>' }
+        { autocomplete: "col-<num>" },
       ],
       [
         `col-auto`,
         {
           flex: "0 0 auto",
-          width: "auto"
-        }
+          width: "auto",
+        },
       ],
       [
         `col-fill`,
         {
           flex: "1 1 auto",
-          width: "auto"
-        }
+          width: "auto",
+        },
       ],
       [
         new RegExp(`^offset-(\\d+)$`),
         ([, size]: any): any => ({
-          "margin-left": size === "0" ? 0 : `${(size / columns) * 100}%`
+          "margin-left": size === "0" ? 0 : `${(size / columns) * 100}%`,
         }),
-        { autocomplete: 'offset-<num>' }
+        { autocomplete: "offset-<num>" },
       ],
       [
         new RegExp(`^g([xy])?-(\\d+)$`),
         ([, dim, size]: any): any => {
-          let gutterObject: { [key: string]: string } = {}
-          if (dim !== "y") gutterObject[`--${prefix}gutter-x`] = `${0.25 * size}rem`
-          if (dim !== "x") gutterObject[`--${prefix}gutter-y`] = `${0.25 * size}rem`
-          return gutterObject
+          let gutterObject: { [key: string]: string } = {};
+          if (dim !== "y")
+            gutterObject[`--${prefix}gutter-x`] = `${0.25 * size}rem`;
+          if (dim !== "x")
+            gutterObject[`--${prefix}gutter-y`] = `${0.25 * size}rem`;
+          return gutterObject;
         },
-        { autocomplete: ['g-<num>', 'gx-<num>', 'gy-<num>'] }
-      ]
-    ]
-  }
+        { autocomplete: ["g-<num>", "gx-<num>", "gy-<num>"] },
+      ],
+    ],
+  };
 }
 
-export default presetGrid
+export default presetGrid;
