@@ -48,14 +48,14 @@ export function presetGrid(options: GridOptions = {}): Preset {
                   --${prefix}container-width: ${ensureSuffix("px", _breakpoints[breakpoint].toString())};
                 }
               }
-              
-             .${_selector} {
-                max-width: calc(var(--${prefix}container-width) - var(--${prefix}container-piece, ${piece}));
-              }
             `
           )
 
           return `
+            .${_selector} {
+              max-width: calc(var(--${prefix}container-width) - var(--${prefix}container-piece, ${piece}));
+            }
+
             .${_selector}, .${_selector}-fluid {
               --${prefix}gutter-x: ${gutter};
               --${prefix}gutter-y: 0;
