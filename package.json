@@ -29,10 +29,10 @@
     "bootstrap"
   ],
   "devDependencies": {
-    "typescript": "^5.3.3",
-    "unocss": "^0.58.4",
-    "vite": "^4.5.2",
-    "vite-plugin-dts": "^3.7.2"
+    "typescript": "^5.4.2",
+    "unocss": "^0.58.6",
+    "vite": "^5.1.6",
+    "vite-plugin-dts": "^3.7.3"
   },
   "peerDependencies": {
     "unocss": ">= 0.56.0 < 1"
