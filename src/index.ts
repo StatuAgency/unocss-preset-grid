@@ -42,8 +42,12 @@ export function presetGrid(options: GridOptions = {}): Preset {
 
           const template = Object.keys(_breakpoints).map(
             (breakpoint) => `@media (min-width: ${ensureSuffix("px", _breakpoints[breakpoint].toString())}) {
+              :root {
+                --${prefix}container-piece: ${piece};
+                --${prefix}container-width: ${ensureSuffix("px", _breakpoints[breakpoint].toString())};
+              }
               .${_selector} {
-                max-width: calc(${ensureSuffix("px", _breakpoints[breakpoint].toString())} - ${piece});
+                max-width: calc(var(--${prefix}container-width) - var(--${prefix}container-piece, ${piece}));
               }
             }`
           )
