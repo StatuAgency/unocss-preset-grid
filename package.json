@@ -35,6 +35,6 @@
     "vite-plugin-dts": "^3.7.3"
   },
   "peerDependencies": {
-    "unocss": ">= 0.56.0 < 1"
+    "unocss": ">= 65.4.0"
   }
 }
